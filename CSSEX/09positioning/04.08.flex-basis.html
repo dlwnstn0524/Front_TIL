@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        flex-basis
+        
+        flex Item의 기본 너비(width)를 direction에 따라 설정하는 속성
+        flex-basis 기본값 (auto)
+        flex-basis 속성 값으로 auto와 0을 많이 사용함
+        속성 값이 auto일 경우 Item의 값은 상대적인 기준이 되어 Item의 너비 기준대로  비율이 설정되며, 
+        0일 경우 Item의 값은 절대적인 기준이되어 container를 기준으로 Item 너비 비율이 동일하게 설정됨
+        width와 flex-basis가 동시에 사용되면 direction 에 따라 달라지기 때문에 width와 flex-basis 중 하나만 사용하는 것을 추천 
+        단위  0, auto, px, em, rem, %, fill, content, max-content, min-content, fit-content
+
+        */
+
+        .container {
+            display: flex;
+            /* flex-direction: column; */
+            flex-direction: row;
+            background-color: deepskyblue;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .item {
+            color: aliceblue;
+            margin: 5px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            height: 50px;
+        }
+
+        .item1 {
+            /* flex-basis: auto; */
+            /* 기본값 */
+            flex-basis: 0;
+            /* flex-basis: 50%; */
+            /* flex-basis: 100px; */
+            /* flex-basis: 10rem; */
+            /* flex-basis: content; */
+            background-color: deeppink;
+        }
+
+        .item2 {
+            width: 100px;
+            /* word-wrap: break-word; */
+            background-color: darkblue;
+        }
+
+        .item3 {
+            width: 100px;
+            flex-basis: 150px;
+            background-color: darkorange;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>flex-basis</h2>
+    <div class="container">
+        <div class="item item1">item1</div>
+        <div class="item item1">item2item2item2item2item2</div>
+        <div class="item item1">item3</div>
+    </div>
+    <br />
+    <h2>width</h2>
+    <div class="container">
+        <div class="item item2">item1</div>
+        <div class="item item2">item2item2item2item2item2</div>
+        <div class="item item2">item3</div>
+    </div>
+    <br />
+    <h2>flex-basis + width</h2>
+    <div class="container">
+        <div class="item item3">item1</div>
+        <div class="item item3">item2item2item2item2item2</div>
+        <div class="item item3">item3</div>
+    </div>
+    <br />
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            Flexbox는 Chrome, Firefox, Edge, Safari, Opera 브라우저에서 모두 지원
+            그러나 Internet Explorer 10, 11에서 부분 지원
+            display:flex; div.container가 부모 요소인 flex container가 되고
+                          div.item은 자식 요소인 flex item이 됨
+            
+            flex container 부모 속성 : flex-direction, flex-wrap, justify-content, align-items, align-content
+            flex item 자식 속성 : flex, flex-grow, flex-shrink, flex-basis, order
+              
+            */
+        .container {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+</body>
+
+</html>

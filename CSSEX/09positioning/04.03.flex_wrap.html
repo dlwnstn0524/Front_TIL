@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            flex-wrap
+            flex item이 flex container 영역을 넘어갈 경우 줄 바꿈여부를 결정하는 속성
+            
+            nowrap(기본값) : Item의 전체 값이 container의 영역 값을 넘치더라도 줄바꿈하지 않음
+            wrap : Item이 container의 영역값을 넘어가면 줄 바꿈이 일어남
+            wrap-reverse : Item이 wrap의 역순으로 배치
+
+        */
+        .container {
+            display: flex;
+            background-color: deepskyblue;
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        .container-nowrap {
+            flex-wrap: nowrap;
+        }
+
+        .container-wrap {
+            flex-wrap: wrap;
+        }
+
+        .container-wrap-reverse {
+            flex-wrap: wrap-reverse;
+        }
+
+        .item {
+            background-color: deeppink;
+            color: aliceblue;
+            margin: 5px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>flex-wrap</h2>
+    <div>
+        <input type="radio" name="flex-wrap" value="nowrap" checked /> nowrap
+        <input type="radio" name="flex-wrap" value="wrap" /> wrap
+        <input type="radio" name="flex-wrap" value="wrap-reverse" /> wrap-reverse
+    </div>
+    <div id="container" class="container">
+        <div class="item">item11</div>
+        <div class="item">item22</div>
+        <div class="item">item33</div>
+    </div>
+    <script>
+        const radios = document.querySelectorAll("input[name='flex-wrap']");
+        const container = document.querySelector("#container");
+        radios.forEach((radio) => {
+            radio.addEventListener("change", (e) => {
+                const current = e.currentTarget;
+                if (current.checked) {
+                    container.setAttribute("class", `container container-${current.value}`);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

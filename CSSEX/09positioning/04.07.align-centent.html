@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        align-content
+ 
+        Item의 교차축을 정렬하는 속성입니다.
+        align-items 속성과 비슷하지만 
+        align-items은 Item이 한 줄로 나열되었을 경우 사용할 수 있는 속성이고, 
+        align-content는 Item이 여러 줄(2줄 이상) 나열되어 있을 때 교차축 정렬을 위해 사용할 수 있는 속성
+        
+
+        stretch(기본값) : container의 높이만큼 교차축 방향으로 item을 늘려, 전체 높이를 채움
+        flex-start : 교차축의 시작 지점을 기준으로 Item을 정렬
+        flex-end : 교차축의 마지막 지점을 기준으로 Item을 정렬
+        center : 교차축의 Item을 가운데 정렬
+        baseline : 글꼴의 기준선인 baseline을 기준으로 Item을 정렬
+        space-between : 교차축의 첫 번째 Item은 시작점에 마지막 Item은 끝 지점 정렬하고, 나머지 item은 사이에 동일한 간격으로 정렬
+        space-around : 교차축을 기준으로 Item둘레에 동일한 간격으로 정렬
+        */
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: deepskyblue;
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 400px;
+            height: 300px;
+        }
+
+        .container-stretch {
+            align-content: flex-start;
+        }
+
+        .container-flex-start {
+            align-content: flex-start;
+        }
+
+        .container-flex-end {
+            align-content: flex-end;
+        }
+
+        .container-center {
+            align-content: center;
+        }
+
+        .container-space-between {
+            align-content: space-between;
+        }
+
+        .container-space-around {
+            align-content: space-around;
+        }
+
+        .container-space-evenly {
+            align-content: space-evenly;
+        }
+
+        .item {
+            background-color: deeppink;
+            color: aliceblue;
+            margin: 5px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>align-content</h2>
+    <div>
+        <input type="radio" name="align-content" value="stretch" checked /> stretch
+        <input type="radio" name="align-content" value="flex-start" /> flex-start
+        <input type="radio" name="align-content" value="flex-end" /> flex-end
+        <input type="radio" name="align-content" value="center" /> center
+        <input type="radio" name="align-content" value="space-between" /> space-between
+        <input type="radio" name="align-content" value="space-around" /> space-around
+        <input type="radio" name="align-content" value="space-evenly" /> space-evenly
+    </div>
+    <div id="container" class="container">
+        <div class="item">item1item1</div>
+        <div class="item">item2item2item2item2item2</div>
+        <div class="item">item3item3item3</div>
+    </div>
+    <script>
+        const radios = document.querySelectorAll("input[name='align-content']");
+        const container = document.querySelector("#container");
+        radios.forEach((radio) => {
+            radio.addEventListener("change", (e) => {
+                const current = e.currentTarget;
+                if (current.checked) {
+                    container.setAttribute("class", `container container-${current.value}`);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

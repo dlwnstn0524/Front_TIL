@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        align-items
+
+        메인축에 수직인 축을 교차축 이라고 하는데
+        Item의 교차축을 정렬하는 속성입니다.
+
+        stretch(기본값) : container의 높이만큼 교차축 방향으로 item을 늘려, 전체 높이를 채움
+        flex-start : 교차축의 시작 지점을 기준으로 Item을 정렬
+        flex-end : 교차축의 마지막 지점을 기준으로 Item을 정렬
+        center : 교차축의 Item을 가운데 정렬
+        baseline : 글꼴의 기준선인 baseline을 기준으로 Item을 정렬
+
+        */
+
+        .container {
+            display: flex;
+            height: 150px;
+            background-color: deepskyblue;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .container-stretch {
+            align-items: stretch;
+        }
+
+        .container-flex-start {
+            align-items: flex-start;
+        }
+
+        .container-flex-end {
+            align-items: flex-end;
+        }
+
+        .container-center {
+            align-items: center;
+        }
+
+        .container-baseline {
+            align-items: baseline;
+        }
+
+        .item {
+            background-color: deeppink;
+            color: aliceblue;
+            margin: 5px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .item:nth-child(1) {
+            font-size: 30px;
+        }
+
+        .item:nth-child(2) {
+            font-size: 14px;
+        }
+
+        .item:nth-child(3) {
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>align-items</h2>
+    <div>
+        <input type="radio" name="align-items" value="stretch" checked /> stretch
+        <input type="radio" name="align-items" value="flex-start" /> flex-start
+        <input type="radio" name="align-items" value="flex-end" /> flex-end
+        <input type="radio" name="align-items" value="center" /> center
+        <input type="radio" name="align-items" value="baseline" /> baseline
+    </div>
+    <div id="container" class="container">
+        <div class="item">good</div>
+        <div class="item">hello</div>
+        <div class="item">ssafy</div>
+    </div>
+    <script>
+        const radios = document.querySelectorAll("input[name='align-items']");
+        const container = document.querySelector("#container");
+        radios.forEach((radio) => {
+            radio.addEventListener("change", (e) => {
+                const current = e.currentTarget;
+                if (current.checked) {
+                    container.setAttribute("class", `container container-${current.value}`);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
