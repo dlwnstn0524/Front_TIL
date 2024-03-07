@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-<script type="text/javascript">
-	var module = (function() {
-		var i = 0;
-		function increment() {
-			i = i + 1;
-		}
+  <head>
+    <meta charset="EUC-KR" />
+    <title>Insert title here</title>
+    <script type="text/javascript">
+      var module = (function () {
+        /*
+         * 자바스크립트는 Closure를 통해 Encapsulation을 구현한다.
+         */
+        var i = 0;
+        function increment() {
+          i = i + 1;
+        }
 
-		function getCount() {
-			increment();
-			return i;
-		}
-		return {
-			count : getCount
-		}
-
-	})();
-	console.log(module.count());
-</script>
-
-</head>
-<body>
-
-</body>
+        function getCount() {
+          increment();
+          return i;
+        }
+        return {
+          count: getCount,
+        };
+      })();
+      console.log(module.count());
+    </script>
+  </head>
+  <body></body>
 </html>
