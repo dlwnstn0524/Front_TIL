@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      #luck {
+        display: block;
+        width: 150px;
+        height: 50px;
+        background-color: steelblue;
+        color: white;
+        font-size: 20px;
+        border-radius: 10px;
+        border: none;
+        margin: 0 auto;
+      }
+      #view {
+        width: 700px;
+        height: 300px;
+        background-color: #ccc;
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .ball {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 80px;
+        font-size: 25px;
+        font-weight: bolder;
+      }
+      .ball0 {
+        background-color: red;
+      }
+      .ball1 {
+        background-color: orange;
+      }
+      .ball2 {
+        background-color: yellow;
+      }
+      .ball3 {
+        background-color: greenyellow;
+      }
+      .ball4 {
+        background-color: blue;
+      }
+      .ball5 {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lotto 번호</h1>
+    <button id="luck">번호 뽑기</button>
+    <div id="view">
+      <div class="ball ball0">15</div>
+      <div class="ball ball1">15</div>
+      <div class="ball ball2">15</div>
+      <div class="ball ball3">15</div>
+      <div class="ball ball4">15</div>
+      <div class="ball ball5">15</div>
+    </div>
+  </body>
+</html>
