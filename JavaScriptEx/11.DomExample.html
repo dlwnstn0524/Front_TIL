@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제목입니다</title>
+    <script>
+        var init = function(){
+            var tags = document.getElementsByTagName("h3");
+            
+            for(i=0; i<tags.length;i++){
+              console.log(tags[i]);
+            }
+
+            tags[0].innerHTML="change h3";
+
+            var bb = document.getElementById("aa");
+            bb.innerHTML="change h3  입니다";
+
+            var cc = document.querySelector(".cc");
+            console.dir(cc);
+        }
+
+        window.onload = init;
+    </script>
+</head>
+<body>
+    <h3>h3 문자열 입니다1</h3>
+    <h3 id="aa">h3 문자열 입니다2</h3>
+    <h2 class="cc">h2 문자열 입니다</h2>
+
+    
+</body>
+<script>
+    
+</script>
+</html>

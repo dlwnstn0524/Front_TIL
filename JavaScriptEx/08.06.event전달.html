@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body * {
+            margin: 10px;
+            border: 1px solid blue;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            document.querySelector("#form").addEventListener("click", e => alert("form"), true);
+            document.querySelector("#div").addEventListener("click", e => alert("div"), true);
+            document.querySelector("#p").addEventListener("click", e => alert("p"), true);
+        }
+    </script>
+</head>
+
+<body>
+    이벤트 버블링
+    <form onclick="alert('form')">FORM
+        <div onclick="alert('div')">DIV
+            <p onclick="alert('p')">P</p>
+        </div>
+    </form>
+    이벤트 버블링 중단
+    <form onclick="alert('form')">FORM
+        <div onclick="event.stopPropagation()">DIV
+            <p onclick="alert('p')">P</p>
+        </div>
+    </form>
+    <form id="form">FORM
+        <div id="div">DIV
+            <p id="p">P</p>
+        </div>
+    </form>
+</body>
+
+</html>
