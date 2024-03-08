@@ -27,9 +27,9 @@
       }
 
       //   이벤트 발생 시까지 대기하지 않고 바로 실행된다.
-      // input.addEventListener('blur', checkVal(MIN_ID_LENGTH));
+      input.addEventListener("blur", checkVal(MIN_ID_LENGTH));
       //   이벤트 발생 시까지 대기한다. 문제는 인자값을 전달할 수 없다. Event객체가 전달.
-      input.addEventListener("blur", checkVal);
+      // input.addEventListener("blur", checkVal);
     </script>
   </body>
 </html>
