@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #test {
+        width: 300px;
+        height: 300px;
+        margin: 10px;
+        border: 1px solid #000;
+      }
+      button {
+        font-size: large;
+        padding: 10px;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn1" onclick="javascript:sync();">동기</button>
+    <button id="btn1" onclick="javascript:async();">비동기</button>
+    <button id="btn1" onclick="javascript:promiseTest();">프로미스</button>
+    <button id="btn1" onclick="javascript:async1();">async1</button>
+    <button id="btn1" onclick="javascript:async2();">async2</button>
+    <div id="test"></div>
+    <script>
+      function async2() {
+        // 비동기 호출에서의 문제점
+        // then, then ... 연쇄적인 메소드 호출로 인한 가독성 저하
+
+        // async await을 이용하는 방법도 있다
+        const auth = async function () {
+          let pro = new Promise((resolve, reject) => {
+            setTimeout(() => {
+              // resolve("resolve~~");
+              reject("reject~~");
+            }, 3000);
+          });
+          try {
+            let result = await pro;
+            console.log(result);
+          } catch (error) {
+            console.log(error);
+          }
+        };
+
+        auth();
+      }
+
+      function async1() {
+        // let auth = function () {
+        //   return Promise.resolve("resolve1");
+        //   // return Promise.reject("reject1");
+        // };
+        // console.log(auth);
+
+        // async 키워드가 함수 앞에 붙으면 리턴이 프로미스 타입이 아니면 프로미스로 변환하여 리턴한다
+        const auth = async function () {
+          return "resolve2";
+        };
+
+        auth()
+          .then(function (res) {
+            console.log("then " + res);
+          })
+          .catch(function (res) {
+            console.log("catch " + res);
+          });
+      }
+
+      function promiseTest() {
+        console.log("start");
+
+        let obj = new Object();
+        let obj1 = {};
+
+        function func(op1, op2) {
+          var obj;
+          this.obj = op1;
+          return op1 + op2;
+        }
+
+        let obj2 = new func(3);
+        let flag = true;
+        let p = new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            if (flag) {
+              resolve("ㅎㅎ resolve 지롱");
+            } else {
+              reject("ㅠㅠ reject 입니다");
+            }
+          }, 3000);
+        })
+          .then(function (result) {
+            // resolve가 호출되면 실행된다.
+            console.log("3s after done");
+            console.log(result);
+            return "One More Time... Plz...";
+          })
+          .then(function (res) {
+            console.log(res);
+          })
+          .catch(function (result) {
+            // reject가 호출되면 실행된다.
+            console.log("3s after not yet");
+            console.log(result);
+          });
+
+        console.log("end");
+      }
+      function async() {
+        console.log("start");
+
+        window.setTimeout(function () {
+          document.querySelector("#test").setAttribute("style", "background-color:blue");
+          console.log("3s after done");
+        }, 3000);
+        document.querySelector("#test").setAttribute("style", "background-color:red");
+        console.log("end");
+      }
+
+      sleep = function (ms) {
+        const time = Date.now() + ms;
+        while (time > Date.now()) {}
+      };
+
+      function sync() {
+        document.querySelector("#test").setAttribute("style", "background-color:red");
+        console.log("start");
+        sleep(3000);
+        console.log("end");
+      }
+    </script>
+  </body>
+</html>
