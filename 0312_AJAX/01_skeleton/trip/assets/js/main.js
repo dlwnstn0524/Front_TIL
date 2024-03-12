@@ -1,5 +1,5 @@
 // index page 로딩 후 전국의 시도 설정.
-let serviceKey = "--------- 본인의 Service Key를 넣으세요 ---------";
+let serviceKey = "p3fTwO4Mo0hT9haHoBquZsX0WnfBdbi0mjRz1UYDIKkaSCQtnmgoPfD%2BWZnfmGFmYfakOMhSOf8CKlfQf1orkA%3D%3D";
 let areaUrl =
   "https://apis.data.go.kr/B551011/KorService1/areaCode1?serviceKey=" +
   serviceKey +

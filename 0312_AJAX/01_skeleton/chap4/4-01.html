@@ -36,6 +36,9 @@
       let btn = document.querySelector("#listBtn");
       btn.addEventListener("click", function () {
         // TODO : 4-01csv.jsp 비동기 호출
+        fetch("4-01csv.jsp")
+          .then((response) => response.text())
+          .then((data) => makeList(data));
       });
 
       function makeList(data) {
@@ -53,9 +56,9 @@
           });
           tbody.appendChild(tr);
         });
-        // document
-        //   .querySelector("tr:first-child")
-        //   .setAttribute("style", "background: black; color: white;");
+        document
+          .querySelector("tr:first-child")
+          .setAttribute("style", "background: black; color: white;");
         let first = document.querySelector("tr:first-child");
         first.className = "first-view-bg";
         first.classList.add("first-view-color");

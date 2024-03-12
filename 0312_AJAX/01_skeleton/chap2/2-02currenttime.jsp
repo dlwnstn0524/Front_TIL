@@ -18,7 +18,7 @@ div {
 </head>
 <body>
 <div>
-<%= curTime %>
+<h2>현재 시간 : <%= curTime %></h2>
 </div>
 </body>
 </html>

@@ -11,11 +11,11 @@
         let response = await fetch(url);
         console.log(response);
 
-        let data = response.json(); // await가 있을때와 없을때 비교.
-        console.log(data);
+        //let data = response.json(); // await가 있을때와 없을때 비교.
+        //console.log(data);
 
-        // let data = await response.json(); // await가 있을때와 없을때 비교.
-        // console.log(data.userId);
+        let data = await response.json(); // await가 있을때와 없을때 비교.
+        console.log(data.userId);
       };
     </script>
   </head>
