@@ -27,7 +27,7 @@ WHERE ENAME LIKE "_A%";
 -- FROM emp;
 SELECT CONCAT(FLOOR(DATEDIFF(CURRENT_DATE(), HIREDATE) / 7), '주', DATEDIFF(CURRENT_DATE(), HIREDATE) % 7, '일')AS DAYS
 FROM emp
-ORDER BY DAYS;
+ORDER BY DAYS desc;
 
 -- 2. 현재까지의 근무 월수를 계산하여 출력하라
 -- SELECT dayofmonth(HIREDATE)
@@ -37,9 +37,11 @@ FROM emp;
 -- 3. 입사일자로부터 돌아오는 금요일을 출력하라
 SELECT DATE_ADD(hiredate, INTERVAL (6 - DAYOFWEEK(hiredate) + 7) % 7 DAY) AS "금요일"
 FROM emp;
+
 -- 4. 입사한 달의 근무일수를 계산하여 출력하라, 단 토/일요일도 근무일수에 포함한다.
 SELECT TIMESTAMPDIFF(DAY, HIREDATE, LAST_DAY(HIREDATE))
 FROM emp;
+
 -- 5. 입사날짜를 ‘1 Jan 1981’ 과 ‘1981년 01월 01일’의 형태로 출력하라.
 SELECT date_format(HIREDATE, "%e %M %Y"), date_format(HIREDATE, "%Y년 %m월 %d일")
 FROM emp;
