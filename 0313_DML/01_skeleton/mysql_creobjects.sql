@@ -1,3 +1,5 @@
+drop database ssafydb;
+
 create database ssafydb;
 
 use ssafydb;
