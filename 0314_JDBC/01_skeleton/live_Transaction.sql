@@ -2,7 +2,9 @@ select @@autocommit; -- 현재의 autocommit 속성을 확인한다.
 
 set autocommit=false; -- 만약 위의 조회 결과가 1 즉 true 이면 false 로 변경 후 처리한다.
 
-use ssafydb;
+use dbtest;
+
+drop table tc_test;
 
 create table tc_test
 (
@@ -21,6 +23,8 @@ insert into tc_test
 values ('c');
 
 rollback;
+
+select * from tc_test;
 
 select *
 from tc_test;
